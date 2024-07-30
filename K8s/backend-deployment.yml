@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: sheraztariq22/backend
+          ports:
+            - containerPort: 4000
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi"
